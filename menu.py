@@ -1,29 +1,31 @@
 import os
+import filtros
+import camara
 
 def menu():
-	os.system('cls')
-	print("selecciona una opcion")
-	print("\t1 - filtro 1")
-	print("\t2 - filtro 2")
-	print("\t3 - filtro 3")
-	print("\t4 - filtro 4")
-	print("\t5 - salir")
+    os.system('cls')
+    print("Selecciona una opcion:")
+    print("\t1 - blanco y negro")
+    print("\t2 - difuminar")
+    print("\t3 - espejo horizontal")
+    print("\t4 - subir contraste")
+    print("\t5 - salir")
+
+# Con ENTER se captura la foto, y con otro ENTER se guarda.
+foto = camara.tomarFoto();
 
 while True:
-	menu()
-	opcion = input("inserta un numero valor >> ")
-
-	if opcion =="1":
-		#poner el filtro1
-	elif opcion == "2":
-		#poner el filtro2
-	elif opcion == "3":
-		#poner el filtro3
-	elif opcion == "4":
-		#poner el filtro4
-	elif opcion == "5":
-		break
-	else:
-		print("no has seleccionado ninguna opcion correcta")
-		break
-		
+    menu()
+    opcion = input("Inserta un numero valor >> ")
+    if opcion =="1":
+        foto = filtros.filtroBN(foto);
+    elif opcion == "2":
+        foto = filtros.filtroDifuminar(foto);
+    elif opcion == "3":
+        foto = filtros.filtroEspejo(foto);
+    elif opcion == "4":
+        foto = filtros.filtroContraste(foto);
+    elif opcion == "5":
+        break
+    else:
+        print("No has seleccionado ninguna opcion correcta.")
